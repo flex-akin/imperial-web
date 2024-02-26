@@ -27,7 +27,6 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4635ab7630.js" crossorigin="anonymous"></script>
 
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -63,6 +62,42 @@
 </head>
 
 <body>
+  <script>
+    $(document).ready(function () {
+      $("#next").on("click", function (event) {
+    const nPage = "<%= pages.data.nextPage %>"
+  
+        $.ajax({
+          url: ``,
+          method: "get",
+          contentType: "application/json",
+  
+          success: function (res) {
+            console.log(res)
+            $("#team").html(res);
+          },
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#previuos").on("click", function (event) {
+    const pPage = "<%= pages.data.previousPage %>"
+  
+        $.ajax({
+          url: `/api/list/lists/${pPage}`,
+          method: "get",
+          contentType: "application/json",
+  
+          success: function (res) {
+            console.log(res)
+            $("#team").html(res);
+          },
+        });
+      });
+    });
+  </script>
   <div class="d-flex row-reverse"></div>
   <div class="d-flex justify-content-start"></div>
   <header  id="header" class="fixed-top d-flex align-items-center">
@@ -159,8 +194,13 @@
 
       </div>
 
-   
+  <div class="pagination">
 
+  ...loading
+
+  </div>
+
+      
 
   </div>
  
